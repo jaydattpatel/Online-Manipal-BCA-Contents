@@ -1,0 +1,79 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat May 27 22:53:38 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: sys / as sysdba
+Enter password:
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> drop table employee;
+
+Table dropped.
+
+SQL> create table employee (emp_number int,emp_name varchar(30),deptno int,emp_sal int);
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_NUMBER                                         NUMBER(38)
+ EMP_NAME                                           VARCHAR2(30)
+ DEPTNO                                             NUMBER(38)
+ EMP_SAL                                            NUMBER(38)
+
+SQL> insert into employee values (1,'abc',100,50000);
+
+1 row created.
+
+SQL> insert into employee values (2,'abcd',200,60000);
+
+1 row created.
+
+SQL> insert into employee values (3,'xyz',300,70000);
+
+1 row created.
+
+SQL> insert into employee values (4,'abcde',400,70000);
+
+1 row created.
+
+SQL> set serveroutput on;
+
+SQL> select * from employee;
+
+EMP_NUMBER EMP_NAME                           DEPTNO    EMP_SAL
+---------- ------------------------------ ---------- ----------
+         1 abc                                   100      50000
+         2 abcd                                  200      60000
+         3 xyz                                   300      70000
+         4 abcde                                 400      70000
+
+SQL> update employee set emp_sal = 80000 where emp_name = 'abcde';
+NEW SALARY : 80000
+OLD SALARY : 70000
+SALARY DIFFERENCE : 10000
+
+1 row updated.
+
+SQL> insert into employee values (4,'pqr',500,40000);
+NEW SALARY : 40000
+OLD SALARY :
+SALARY DIFFERENCE :
+
+1 row created.
+
+SQL> select * from employee;
+
+EMP_NUMBER EMP_NAME                           DEPTNO    EMP_SAL
+---------- ------------------------------ ---------- ----------
+         1 abc                                   100      50000
+         2 abcd                                  200      60000
+         3 xyz                                   300      70000
+         4 abcde                                 400      80000
+         4 pqr                                   500      40000
+
+SQL>

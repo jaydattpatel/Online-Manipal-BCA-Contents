@@ -1,0 +1,119 @@
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat Apr 1 18:26:33 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: sys / as sysdba
+Enter password:
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_5_Exception.sql";
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_5_Exception.sql";
+The result after division : 5
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_5_Exception.sql";
+Division by zero, please check your values
+a = 10
+b = 0
+
+PL/SQL procedure successfully completed.
+
+SQL> create table student (sno int, sname varchar(20), age int, course varchar(20));
+
+Table created.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_5_commit.sql";
+Enter value for sno: 12
+old   8:        rollno := &sno;
+new   8:        rollno := 12;
+Enter value for sname: abc
+old   9:        snm := '&sname';
+new   9:        snm := 'abc';
+Enter value for age: 18
+old  10:        s_age := &age;
+new  10:        s_age := 18;
+Enter value for course: bca
+old  11:        s_cr := '&course';
+new  11:        s_cr := 'bca';
+One Record Entered
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from student;
+
+       SNO SNAME                       AGE COURSE
+---------- -------------------- ---------- --------------------
+        12 abc                          18 bca
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_5_rollback.sql";
+Enter value for sno: 100
+old   8:        rollno := &sno;
+new   8:        rollno := 100;
+Enter value for sname: abcde
+old   9:        snm := '&sname';
+new   9:        snm := 'abcde';
+Enter value for age: 20
+old  10:        s_age := &age;
+new  10:        s_age := 20;
+Enter value for course: bba
+old  11:        s_cr := '&course';
+new  11:        s_cr := 'bba';
+One Record Entered
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from student;
+
+       SNO SNAME                       AGE COURSE
+---------- -------------------- ---------- --------------------
+        12 abc                          18 bca
+
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_5_commit_rollback.sql";
+Enter value for sno: 1
+old   8:        rollno := &sno;
+new   8:        rollno := 1;
+Enter value for sname: xyz
+old   9:        snm := '&sname';
+new   9:        snm := 'xyz';
+Enter value for age: 17
+old  10:        s_age := &age;
+new  10:        s_age := 17;
+Enter value for course: bca
+old  11:        s_cr := '&course';
+new  11:        s_cr := 'bca';
+Enter value for sno: 10
+old  19:        rollno := &sno;
+new  19:        rollno := 10;
+Enter value for sname: abcdef
+old  20:        snm := '&sname';
+new  20:        snm := 'abcdef';
+Enter value for age: 20
+old  21:        s_age := &age;
+new  21:        s_age := 20;
+Enter value for course: bca
+old  22:        s_cr := '&course';
+new  22:        s_cr := 'bca';
+One Record Entered
+Second Record Rolled Back
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from student;
+
+       SNO SNAME                       AGE COURSE
+---------- -------------------- ---------- --------------------
+        12 abc                          18 bca
+         1 xyz                          17 bca
+
+SQL>

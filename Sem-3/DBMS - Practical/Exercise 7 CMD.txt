@@ -1,0 +1,103 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat May 27 19:28:00 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: sys / as sysdba
+Enter password:
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> set serveroutput on;
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_7_loop.sql"
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_7_while.sql"
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_7_for.sql"
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+PL/SQL procedure successfully completed.
+
+SQL> create table employee(EMP_NUMBER int, EMP_NAME varchar(20));
+
+Table created.
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_NUMBER                                         NUMBER(38)
+ EMP_NAME                                           VARCHAR2(20)
+
+SQL> insert into employee values(101,'Rahul');
+
+1 row created.
+
+SQL> insert into employee values(102,'Amit');
+
+1 row created.
+
+SQL> insert into employee values(103,'Ajay');
+
+1 row created.
+
+SQL> select *from employee;
+
+EMP_NUMBER EMP_NAME
+---------- --------------------
+       101 Rahul
+       102 Amit
+       103 Ajay
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_7_predefine_exception.sql"
+Enter value for number: 101
+old   3:        emp_n employee.emp_number%type := &number;
+new   3:        emp_n employee.emp_number%type := 101;
+Name : Rahul
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_7_predefine_exception.sql"
+Enter value for number: 105
+old   3:        emp_number employee.emp_number%type := &number;
+new   3:        emp_number employee.emp_number%type := 105;
+No Such Employee
+
+PL/SQL procedure successfully completed.
+
+SQL>

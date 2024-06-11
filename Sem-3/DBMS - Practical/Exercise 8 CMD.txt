@@ -1,0 +1,84 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat May 27 21:54:28 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: sys / as sysdba
+Enter password:
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_NUMBER                                         NUMBER(38)
+ EMP_NAME                                           VARCHAR2(20)
+
+SQL> select *from employee;
+
+EMP_NUMBER EMP_NAME
+---------- --------------------
+       101 Rahul
+       102 Amit
+       103 Ajay
+
+SQL> insert into employee values (104, 'abc');
+
+1 row created.
+
+SQL> insert into employee values (105, 'abc');
+
+1 row created.
+
+SQL> select *from employee;
+
+EMP_NUMBER EMP_NAME
+---------- --------------------
+       101 Rahul
+       102 Amit
+       103 Ajay
+       104 abc
+       105 abc
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_8_procedure.sql"
+
+Procedure created.
+
+SQL> exec p1(104,'Bhavesh');
+
+PL/SQL procedure successfully completed.
+
+SQL> select *from employee;
+
+EMP_NUMBER EMP_NAME
+---------- --------------------
+       101 Rahul
+       102 Amit
+       103 Ajay
+       104 Bhavesh
+       105 abc
+
+SQL> create or replace procedure P2(p_in IN varchar,p_out OUT varchar)
+  2  is
+  3  begin
+  4  select reverse (p_in) into p_out from dual;
+  5  end;
+  6  /
+
+Procedure created.
+
+SQL> variable myp varchar2(100)
+SQL> exec P2('ABCD',:myp)
+
+PL/SQL procedure successfully completed.
+
+SQL> print:myp
+
+MYP
+--------------------------------------------------------------------------------
+DCBA
+
+SQL>

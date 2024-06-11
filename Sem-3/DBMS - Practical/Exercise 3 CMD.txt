@@ -1,0 +1,123 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| company            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use company;
+Database changed
+
+mysql> show tables;
++-------------------+
+| Tables_in_company |
++-------------------+
+| employee          |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> desc employee;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | YES  |     | NULL    |       |
+| name    | varchar(10)  | YES  |     | NULL    |       |
+| age     | int          | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
+| dept_no | int          | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select *from employee;
+Empty set (0.00 sec)
+
+mysql> insert into employee (id,name,age,dept_no) values(1,"abcd",25,7);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from employee;
++------+------+------+---------+---------+
+| id   | name | age  | address | dept_no |
++------+------+------+---------+---------+
+|    1 | abcd |   25 | NULL    |       7 |
++------+------+------+---------+---------+
+1 row in set (0.00 sec)
+
+mysql> insert into employee values(2,"xyz",NULL,NULL,5);
+Query OK, 1 row affected (0.23 sec)
+
+mysql> select * from employee;
++------+------+------+---------+---------+
+| id   | name | age  | address | dept_no |
++------+------+------+---------+---------+
+|    1 | abcd |   25 | NULL    |       7 |
+|    2 | xyz  | NULL | NULL    |       5 |
++------+------+------+---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> insert into employee values(3,"abc",24,"New Delhi",5),(5,"pqr",25,NULL,5),(6,"asd",23,NULL,7);
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++------+------+------+-----------+---------+
+| id   | name | age  | address   | dept_no |
++------+------+------+-----------+---------+
+|    1 | abcd |   25 | NULL      |       7 |
+|    2 | xyz  | NULL | NULL      |       5 |
+|    3 | abc  |   24 | New Delhi |       5 |
+|    5 | pqr  |   25 | NULL      |       5 |
+|    6 | asd  |   23 | NULL      |       7 |
++------+------+------+-----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> update employee set address = "kolkata" where id = 5;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------+-----------+---------+
+| id   | name | age  | address   | dept_no |
++------+------+------+-----------+---------+
+|    1 | abcd |   25 | NULL      |       7 |
+|    2 | xyz  | NULL | NULL      |       5 |
+|    3 | abc  |   24 | New Delhi |       5 |
+|    5 | pqr  |   25 | kolkata   |       5 |
+|    6 | asd  |   23 | NULL      |       7 |
++------+------+------+-----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> update employee set age = 27 where name = "abc";
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+------+------+-----------+---------+
+| id   | name | age  | address   | dept_no |
++------+------+------+-----------+---------+
+|    1 | abcd |   25 | NULL      |       7 |
+|    2 | xyz  | NULL | NULL      |       5 |
+|    3 | abc  |   27 | New Delhi |       5 |
+|    5 | pqr  |   25 | kolkata   |       5 |
+|    6 | asd  |   23 | NULL      |       7 |
++------+------+------+-----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> delete from employee where dept_no = 5;
+Query OK, 3 rows affected (0.04 sec)
+
+mysql> select * from employee;
++------+------+------+---------+---------+
+| id   | name | age  | address | dept_no |
++------+------+------+---------+---------+
+|    1 | abcd |   25 | NULL    |       7 |
+|    6 | asd  |   23 | NULL    |       7 |
++------+------+------+---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> delete from employee;
+Query OK, 2 rows affected (0.04 sec)

@@ -1,0 +1,197 @@
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat May 27 10:53:02 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: sys / as sysdba
+Enter password:
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> create table student (sno int, sname varchar(20), M1 int, M2 int, M3 int, Total int, Avg float,class varchar(30));
+
+Table created.
+
+SQL> desc student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SNO                                                NUMBER(38)
+ SNAME                                              VARCHAR2(20)
+ M1                                                 NUMBER(38)
+ M2                                                 NUMBER(38)
+ M3                                                 NUMBER(38)
+ TOTAL                                              NUMBER(38)
+ AVG                                                FLOAT(126)
+ CLASS                                              VARCHAR2(30)
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_if_else.sql"
+Enter value for sno: 1
+old   2:        sno int := &sno;
+new   2:        sno int := 1;
+Enter value for sname: abc
+old   3:        sname varchar(20) := '&sname';
+new   3:        sname varchar(20) := 'abc';
+Enter value for m1: 30
+old   4:        m1 int := &m1;
+new   4:        m1 int := 30;
+Enter value for m2: 50
+old   5:        m2 int := &m2;
+new   5:        m2 int := 50;
+Enter value for m3: 70
+old   6:        m3 int := &m3;
+new   6:        m3 int := 70;
+
+PL/SQL procedure successfully completed.
+
+SQL> select *from student;
+
+       SNO SNAME                        M1         M2         M3      TOTAL       AVG CLASS
+---------- -------------------- ---------- ---------- ---------- -------------------- ------------------------------
+
+         1 abc                          30         50         70        150        50 fail
+
+
+
+SQL> set serveroutput on;
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_NULLIF.sql"
+Enter value for sv_user_num: 9
+old   2:        v_num NUMBER := &sv_user_num;
+new   2:        v_num NUMBER := 9;
+Remainder : 1
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_NULLIF.sql"
+Enter value for sv_user_num: 10
+old   2:        v_num NUMBER := &sv_user_num;
+new   2:        v_num NUMBER := 10;
+Remainder :
+
+PL/SQL procedure successfully completed.
+
+SQL> select
+  2  case
+  3     when 2<3 then 'hello'
+  4     when 5>3 then 'bye'
+  5     when 5<2 then 'hello world'
+  6  end
+  7  from dual;
+
+CASEWHEN2<3
+-----------
+hello
+
+SQL> select
+  2  case
+  3     when 2>3 then 'hello'
+  4     when 5>3 then 'bye'
+  5     when 5<2 then 'hello world'
+  6  end
+  7  from dual;
+
+CASE
+-----------
+bye
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_case.sql"
+Enter value for sv_num1: NULL
+old   2:        v_num1 NUMBER := &sv_num1;
+new   2:        v_num1 NUMBER := NULL;
+Enter value for sv_num2: 12
+old   3:        v_num2 NUMBER := &sv_num2;
+new   3:        v_num2 NUMBER := 12;
+Enter value for sv_num3: 5
+old   4:        v_num3 NUMBER := &sv_num3;
+new   4:        v_num3 NUMBER := 5;
+RESULT: 12
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_case.sql"
+Enter value for sv_num1: 5
+old   2:        v_num1 NUMBER := &sv_num1;
+new   2:        v_num1 NUMBER := 5;
+Enter value for sv_num2: NULL
+old   3:        v_num2 NUMBER := &sv_num2;
+new   3:        v_num2 NUMBER := NULL;
+Enter value for sv_num3: 7
+old   4:        v_num3 NUMBER := &sv_num3;
+new   4:        v_num3 NUMBER := 7;
+RESULT: 5
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_case.sql"
+Enter value for sv_num1: NULL
+old   2:        v_num1 NUMBER := &sv_num1;
+new   2:        v_num1 NUMBER := NULL;
+Enter value for sv_num2: NULL
+old   3:        v_num2 NUMBER := &sv_num2;
+new   3:        v_num2 NUMBER := NULL;
+Enter value for sv_num3: NULL
+old   4:        v_num3 NUMBER := &sv_num3;
+new   4:        v_num3 NUMBER := NULL;
+RESULT:
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_coalesce.sql"
+Enter value for sv_num1: NULL
+old   2:        v_num1 NUMBER := &sv_num1;
+new   2:        v_num1 NUMBER := NULL;
+Enter value for sv_num2: 5
+old   3:        v_num2 NUMBER := &sv_num2;
+new   3:        v_num2 NUMBER := 5;
+Enter value for sv_num3: 10
+old   4:        v_num3 NUMBER := &sv_num3;
+new   4:        v_num3 NUMBER := 10;
+Result : 5
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_coalesce.sql"
+Enter value for sv_num1: NULL
+old   2:        v_num1 NUMBER := &sv_num1;
+new   2:        v_num1 NUMBER := NULL;
+Enter value for sv_num2: NULL
+old   3:        v_num2 NUMBER := &sv_num2;
+new   3:        v_num2 NUMBER := NULL;
+Enter value for sv_num3: 15
+old   4:        v_num3 NUMBER := &sv_num3;
+new   4:        v_num3 NUMBER := 15;
+Result : 15
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_coalesce.sql"
+Enter value for sv_num1: NULL
+old   2:        v_num1 NUMBER := &sv_num1;
+new   2:        v_num1 NUMBER := NULL;
+Enter value for sv_num2: NULL
+old   3:        v_num2 NUMBER := &sv_num2;
+new   3:        v_num2 NUMBER := NULL;
+Enter value for sv_num3: NULL
+old   4:        v_num3 NUMBER := &sv_num3;
+new   4:        v_num3 NUMBER := NULL;
+Result :
+
+PL/SQL procedure successfully completed.
+
+SQL> @"F:\BCA\Programs\Manipal\DBMS\DBMS - Practical\Exercise_6_coalesce.sql"
+Enter value for sv_num1: 3
+old   2:        v_num1 NUMBER := &sv_num1;
+new   2:        v_num1 NUMBER := 3;
+Enter value for sv_num2: NULL
+old   3:        v_num2 NUMBER := &sv_num2;
+new   3:        v_num2 NUMBER := NULL;
+Enter value for sv_num3: 5
+old   4:        v_num3 NUMBER := &sv_num3;
+new   4:        v_num3 NUMBER := 5;
+Result : 3
+
+PL/SQL procedure successfully completed.
+
+SQL>

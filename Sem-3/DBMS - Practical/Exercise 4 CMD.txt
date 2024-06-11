@@ -1,0 +1,107 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat Apr 1 17:42:36 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: sys/as sysdba
+Enter password:
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> create table empl(id int, name varchar(20), DOJ date);
+
+Table created.
+
+SQL> insert into empl values(123,'abc','01-jan-2019');
+
+1 row created.
+
+SQL> select to_char (id) from empl;
+
+TO_CHAR(ID)
+----------------------------------------
+123
+
+SQL> select to_char(sysdate) from dual;
+
+TO_CHAR(SYSDATE)
+------------------
+01-APR-23
+
+SQL> select to_char(sysdate,'hh24:mm:ssam') from empl;
+
+TO_CHAR(SY
+----------
+17:04:28pm
+
+SQL> select substr('oracle',2,3) from empl;
+
+SUB
+---
+rac
+
+SQL> select translate ('corporation','or','AB') from dual;
+
+TRANSLATE('
+-----------
+cABpABatiAn
+
+
+SQL> select initcap('i like to pl sql') from dual;
+
+INITCAP('ILIKETO
+----------------
+I Like To Pl Sql
+
+SQL> select upper ('pl sql') from dual;
+
+UPPER(
+------
+PL SQL
+
+SQL> select lower ('PL SQL') from dual;
+
+LOWER(
+------
+pl sql
+
+
+SQL> select lpad ('CODL',15,'*') from dual;
+
+LPAD('CODL',15,
+---------------
+***********CODL
+
+SQL> select rpad ('CODL',15,'*') from dual;
+
+RPAD('CODL',15,
+---------------
+CODL***********
+
+SQL> select ltrim ('          abc') from dual;
+
+LTR
+---
+abc
+
+SQL> select rtrim ('abc        ') from dual;
+
+RTR
+---
+abc
+
+
+SQL> select months_between ('20-Aug-2010' , '25-Feb-2011') from dual;
+
+MONTHS_BETWEEN('20-AUG-2010','25-FEB-2011')
+-------------------------------------------
+                                 -6.1612903
+
+SQL> select add_months ('5-Aug-2019',7) from dual;
+
+ADD_MONTH
+---------
+05-MAR-20

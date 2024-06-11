@@ -1,0 +1,124 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.07 sec)
+
+mysql> create database company;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| company            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use company;
+Database changed
+
+mysql> create table employee(id int, name varchar(20), address varchar(100));
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_company |
++-------------------+
+| employee          |
++-------------------+
+1 row in set (0.02 sec)
+
+mysql> desc employee;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | YES  |     | NULL    |       |
+| name    | varchar(20)  | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table employee add primary key(name,address);
+Query OK, 0 rows affected (0.37 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | YES  |     | NULL    |       |
+| name    | varchar(20)  | NO   | PRI | NULL    |       |
+| address | varchar(100) | NO   | PRI | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table employee drop id;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| name    | varchar(20)  | NO   | PRI | NULL    |       |
+| address | varchar(100) | NO   | PRI | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table employee add id int;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| name    | varchar(20)  | NO   | PRI | NULL    |       |
+| address | varchar(100) | NO   | PRI | NULL    |       |
+| id      | int          | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table employee modify id varchar(10);
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| name    | varchar(20)  | NO   | PRI | NULL    |       |
+| address | varchar(100) | NO   | PRI | NULL    |       |
+| id      | varchar(10)  | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> drop table employee;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> drop database company;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
