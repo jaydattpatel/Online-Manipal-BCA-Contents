@@ -1,0 +1,4 @@
+
+# Write a script to print "Hello Unix" string.
+
+echo "Hello Unix"
