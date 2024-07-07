@@ -1,5 +1,5 @@
-# Online-Manipal-BCA-Contents
-BCA Full Course Contents - Online Manipal University Jaipur(MUJ)
+# Online-Manipal-BCA-Contents-2022
+BCA Full Course Contents as on 2022- Online Manipal University Jaipur(MUJ)
 
 <div id="logo">
   <a href="https://www.onlinemanipal.com/">
