@@ -1,7 +1,7 @@
 # Online-Manipal-BCA-Contents-2022
 BCA Full Course Contents as on 2022- Online Manipal University Jaipur(MUJ)
 <div id="badges">
-  <img src="https://api.visitorbadge.io/api/visitors?path=jaydattpatel%2FOnline-Manipal-BCA&label=Visitors&countColor=%2337d67a" alt="Visitor badge" width="100" height="28"/>
+  <img src="https://api.visitorbadge.io/api/visitors?path=jaydattpatel%2FOnline-Manipal-BCA&label=Visitors&labelColor=%23720026&countColor=%23ffae00" alt="Visitor badge" width="100" height="28"/>
 </div>
 <div id="logo">
   <a href="https://www.onlinemanipal.com/">
