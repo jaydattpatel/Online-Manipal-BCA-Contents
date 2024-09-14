@@ -1,0 +1,37 @@
+Practical List
+
+Experiment 1: Hello Android
+Objective: Familiarize with the Android Studio IDE and create a simple application that displays "Hello, Android!" on the screen. This will cover basic setup and project structure understanding.
+
+Experiment 2: Basic Temperature Converter
+Objective: Develop an application that converts temperatures between Celsius and Fahrenheit. This will introduce basic UI elements and event handling.
+
+Experiment 3: Simple Tap Counter
+Objective: Create an app that counts the number of times a button is tapped. This experiment will reinforce understanding of event listeners and UI updates.
+
+Experiment 4: BMI Calculator
+Objective: Develop a Body Mass Index (BMI) calculator that takes weight and height as input and displays the BMI value. This will involve more complex UI inputs and basic arithmetic operations.
+
+Experiment 5: Basic Calculator App
+Objective: Create a simple calculator that can perform basic arithmetic operations like addition, subtraction, multiplication, and division. This will introduce more complex UI layouts and event handling.
+
+Experiment 6: To-do List Application (Part 1)
+Objective: Start building a basic to-do list application that allows users to add items to a list. This experiment will cover basic ListView usage and custom adapters.
+
+Experiment 7: To-do List Application (Part 2)
+Objective: Enhance the to-do list application by allowing users to delete and edit items. This will introduce more advanced concepts of ListView manipulation and event handling.
+
+Experiment 8: Multimedia - Audio Player
+Objective: Develop an application that can play audio files stored on the device. This will cover aspects of multimedia handling in Android.
+
+Experiment 9: Multimedia - Video Player
+Objective: Create an app that can play video files. This will delve deeper into multimedia APIs and file handling in Android.
+
+Experiment 10: Using the Camera
+Objective: Develop an application that can take pictures using the device's camera and display them within the app. This introduces camera API usage and file storage.
+
+Experiment 11: SQLite Database Integration
+Objective: Enhance the to-do list application by integrating an SQLite database to store the tasks persistently. This will cover basic database operations in Android.
+
+Experiment 12: Content Provider Usage
+Objective: Create an application that uses a content provider to access and display data. This could be integrated into the to-do list app or another application, introducing the concept of content providers and data sharing between apps.
